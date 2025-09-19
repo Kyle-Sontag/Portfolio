@@ -8,7 +8,7 @@ function validateContactForm($data) {
     $name = trim($data['name'] ?? '');
     if (empty($name)) {
         $errors['name'] = 'Name is required.';
-    } elseif (strlen($name) > 100) {
+    } elseif (strlen($name) > 50) {
         $errors['name'] = 'Name cannot exceed 100 characters.';
     }
 
@@ -18,7 +18,7 @@ function validateContactForm($data) {
         $errors['email'] = 'Email is required.';
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         $errors['email'] = 'Please enter a valid email address.';
-    } elseif (strlen($email) > 255) {
+    } elseif (strlen($email) > 100) {
         $errors['email'] = 'Email cannot exceed 255 characters.';
     }
 
@@ -26,7 +26,7 @@ function validateContactForm($data) {
     $subject = trim($data['subject'] ?? '');
     if (empty($subject)) {
         $errors['subject'] = 'Subject is required.';
-    } elseif (strlen($subject) > 200) {
+    } elseif (strlen($subject) > 100) {
         $errors['subject'] = 'Subject cannot exceed 200 characters.';
     }
 
